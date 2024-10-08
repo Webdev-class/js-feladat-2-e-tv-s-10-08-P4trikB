@@ -5,7 +5,7 @@ async function f1 (lat, long, timeStr) {
     const queryStr = APIAdress + `latitude=${lat}&longitude=${long}&start_date=${timeStr}&end_date=${timeStr}&hourly=temperature_2m`;
     const rArr =  await fetch(queryStr).then(data => data.json());
     let sum = 0;
-    rArr.hourly.temperature_2.forEach(element => {
+    rArr.hourly.temperature_2m.forEach(element => {
         sum += element;
     });
     return Math.floor(sum / 24);
